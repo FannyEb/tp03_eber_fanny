@@ -1,0 +1,56 @@
+<h1>Formulaire</h1>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="lastName">Nom</label>
+            <input type="text" class="form-control" id="lastName" placeholder="EBER" pattern="[A-z]{*}">
+        </div>
+        <div class="form-group">
+            <label for="firstName">Prénom</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Fanny">
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse</label>
+            <input type="text" class="form-control" id="adresse" placeholder="4 rue Alice Guy">
+        </div>
+        <div class="form-group">
+            <label for="cp">Code Postal</label>
+            <input type="text" class="form-control" id="cp" placeholder="67000" pattern="[0-9]{5}">
+        </div>
+        <div class="form-group">
+            <label for="city">Ville</label>
+            <input type="text" class="form-control" id="city" placeholder="Strasbourg">
+        </div>
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" class="form-control" id="phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Adresse mail</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="gender" class="form-label mt-4">Civilité</label>
+            <select class="form-select" id="gender">
+                <option>Monsieur</option>
+                <option>Madame</option>
+                <option>Autre</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" class="form-control" id="login">
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+            <label for="passwordConfirm">Confirmation du mot de passe</label>
+            <input type="password" class="form-control" id="passwordConfirm" equalsTo="#password">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
+    </form>
+</div>
