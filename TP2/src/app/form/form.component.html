@@ -1,76 +1,66 @@
-<h1>Formulaire</h1>
-<div class="container">
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Nom</mat-label>
-            <input matInput placeholder="EBER">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Prénom</mat-label>
-            <input matInput placeholder="Fanny">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Adresse</mat-label>
-            <input matInput placeholder="10 Rue de la Paix">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Code postal</mat-label>
-            <input matInput placeholder="75000">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Ville</mat-label>
-            <input matInput placeholder="Paris">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Adresse mail</mat-label>
-            <input matInput placeholder="name@exemple.com">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Numéro de téléphone</mat-label>
-            <input matInput placeholder="06 00 00 00 00">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Civilité</mat-label>
-            <mat-select>
-                <mat-option value="Mme">Madame</mat-option>
-                <mat-option value="Mlle">Monsieur</mat-option>
-                <mat-option value="M">Autre</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Login</mat-label>
-            <input matInput placeholder="login">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Enter your password</mat-label>
-            <input matInput [type]="'password'">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Confirm your password</mat-label>
-            <input matInput [type]="'password'">
-        </mat-form-field>
-    </p>
-    <p>
-        <button mat-raised-button color="primary">Valider</button>
-    </p>
+<div class="main-content">
+    <h1>Formulaire</h1>
+    <div class="container">
+        <div>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input matInput placeholder="EBER" [(ngModel)]="client.lastName" required>
+            </mat-form-field>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Prénom</mat-label>
+                <input matInput placeholder="Fanny" [(ngModel)]="client.firstName" required>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Adresse</mat-label>
+                <input matInput placeholder="10 Rue de la Paix" [(ngModel)]="client.address" required>
+            </mat-form-field>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Code postal</mat-label>
+                <input matInput placeholder="75000" [(ngModel)]="client.codeCity" required>
+            </mat-form-field>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Ville</mat-label>
+                <input matInput placeholder="Paris" [(ngModel)]="client.city" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Adresse mail</mat-label>
+                <input matInput placeholder="name@exemple.com" [(ngModel)]="client.email" required>
+            </mat-form-field>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Numéro de téléphone</mat-label>
+                <input matInput placeholder="06 00 00 00 00" [(ngModel)]="client.phone" required>
+            </mat-form-field>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Civilité</mat-label>
+                <mat-select>
+                    <mat-option value="Madame">Madame</mat-option>
+                    <mat-option value="Monsieur">Monsieur</mat-option>
+                    <mat-option value="Autre">Autre</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Login</mat-label>
+                <input matInput placeholder="login" [(ngModel)]="client.login" required>
+            </mat-form-field>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="'password'" [(ngModel)]="client.password" required>
+            </mat-form-field>
+            <mat-form-field class="form-group" appearance="fill">
+                <mat-label>Confirm your password</mat-label>
+                <input matInput [type]="'password'" required>
+            </mat-form-field>
+        </div>
+        <div>
+            <button mat-raised-button color="primary" (click)="validate()">Valider</button>
+        </div>
+    </div>
 </div>
