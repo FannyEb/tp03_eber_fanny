@@ -1,43 +1,43 @@
-<div class="main-content">
+<div class="main-content" *ngIf="!showInfo">
     <h1>Formulaire</h1>
     <div class="container">
         <div>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Nom</mat-label>
                 <input matInput placeholder="EBER" [(ngModel)]="client.lastName" required>
             </mat-form-field>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Prénom</mat-label>
                 <input matInput placeholder="Fanny" [(ngModel)]="client.firstName" required>
             </mat-form-field>
         </div>
         <div>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Adresse</mat-label>
                 <input matInput placeholder="10 Rue de la Paix" [(ngModel)]="client.address" required>
             </mat-form-field>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Code postal</mat-label>
                 <input matInput placeholder="75000" [(ngModel)]="client.codeCity" required>
             </mat-form-field>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Ville</mat-label>
                 <input matInput placeholder="Paris" [(ngModel)]="client.city" required>
             </mat-form-field>
         </div>
 
         <div>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Adresse mail</mat-label>
-                <input matInput placeholder="name@exemple.com" [(ngModel)]="client.email" required>
+                <input matInput placeholder="name@exemple.com" [(ngModel)]="client.email" >
             </mat-form-field>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Numéro de téléphone</mat-label>
                 <input matInput placeholder="06 00 00 00 00" [(ngModel)]="client.phone" required>
             </mat-form-field>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Civilité</mat-label>
-                <mat-select>
+                <mat-select [(value)]="client.civility">
                     <mat-option value="Madame">Madame</mat-option>
                     <mat-option value="Monsieur">Monsieur</mat-option>
                     <mat-option value="Autre">Autre</mat-option>
@@ -46,21 +46,26 @@
         </div>
 
         <div>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Login</mat-label>
                 <input matInput placeholder="login" [(ngModel)]="client.login" required>
             </mat-form-field>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Enter your password</mat-label>
                 <input matInput [type]="'password'" [(ngModel)]="client.password" required>
             </mat-form-field>
-            <mat-form-field class="form-group" appearance="fill">
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Confirm your password</mat-label>
-                <input matInput [type]="'password'" required>
+                <input matInput [type]="'password'" [(ngModel)]="client.confirmPassword" required>
             </mat-form-field>
         </div>
         <div>
             <button mat-raised-button color="primary" (click)="validate()">Valider</button>
         </div>
     </div>
+</div>
+
+<div *ngIf="showInfo" class="main-content">
+    <button mat-raised-button color="primary" (click)="showInfo=false">Retour</button>
+    <app-client-info [client]="client"></app-client-info>
 </div>

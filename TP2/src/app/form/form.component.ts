@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from '../core/model/client';
+
 
 @Component({
   selector: 'app-form',
@@ -9,13 +11,14 @@ import { Client } from '../core/model/client';
 export class FormComponent{
 
   client: Client = new Client();
+  showInfo = false;
 
   validate(){
     // password and confirmPassword must be equals
     if(this.client.password != this.client.confirmPassword){
-      alert('password and confirmPassword must be equals');
-      return;
+      alert('le mot de passe n\'est pas identique à la confirmation de mot de passe')
+      return
     }
-    
+    this.showInfo = true    
   }
 }

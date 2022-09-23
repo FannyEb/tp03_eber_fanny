@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Client } from '../core/model/client';
 
 @Component({
   selector: 'app-client-info',
   templateUrl: './client-info.component.html',
   styleUrls: ['./client-info.component.css']
 })
-export class ClientInfoComponent implements OnInit {
+export class ClientInfoComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() client: Client = new Client()
 
 }

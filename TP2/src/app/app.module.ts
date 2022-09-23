@@ -16,6 +16,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
 
 const routes: Routes = [
   { path: '', component: FormComponent },
@@ -28,7 +29,7 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     FormComponent,
-    ClientInfoComponent
+    ClientInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ const routes: Routes = [
     MatDatepickerModule,
     MatToolbarModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
