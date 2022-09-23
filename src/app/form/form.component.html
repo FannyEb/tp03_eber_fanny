@@ -17,6 +17,12 @@
                 <input matInput placeholder="10 Rue de la Paix" [(ngModel)]="client.address" required>
             </mat-form-field>
             <mat-form-field class="form-group" appearance="legacy">
+                <mat-label>Pays</mat-label>
+                <input matInput placeholder="France" [(ngModel)]="client.country" required>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Code postal</mat-label>
                 <input matInput placeholder="75000" [(ngModel)]="client.codeCity" required>
             </mat-form-field>
@@ -24,12 +30,13 @@
                 <mat-label>Ville</mat-label>
                 <input matInput placeholder="Paris" [(ngModel)]="client.city" required>
             </mat-form-field>
+
         </div>
 
         <div>
             <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Adresse mail</mat-label>
-                <input matInput placeholder="name@exemple.com" [(ngModel)]="client.email" >
+                <input matInput placeholder="name@exemple.com" [(ngModel)]="client.email">
             </mat-form-field>
             <mat-form-field class="form-group" appearance="legacy">
                 <mat-label>Numéro de téléphone</mat-label>
@@ -47,15 +54,15 @@
 
         <div>
             <mat-form-field class="form-group" appearance="legacy">
-                <mat-label>Login</mat-label>
+                <mat-label>Identifiant</mat-label>
                 <input matInput placeholder="login" [(ngModel)]="client.login" required>
             </mat-form-field>
             <mat-form-field class="form-group" appearance="legacy">
-                <mat-label>Enter your password</mat-label>
+                <mat-label>Mot de passe</mat-label>
                 <input matInput [type]="'password'" [(ngModel)]="client.password" required>
             </mat-form-field>
             <mat-form-field class="form-group" appearance="legacy">
-                <mat-label>Confirm your password</mat-label>
+                <mat-label>Confirmation mot de passe</mat-label>
                 <input matInput [type]="'password'" [(ngModel)]="client.confirmPassword" required>
             </mat-form-field>
         </div>

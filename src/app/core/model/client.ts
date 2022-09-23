@@ -6,6 +6,7 @@ export class Client{
     address: string= '';
     city: string= '';
     codeCity: string= '';
+    country: string= '';
     login: string= '';
     password: string= '';
     confirmPassword: string= '';

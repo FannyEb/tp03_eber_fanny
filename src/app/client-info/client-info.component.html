@@ -7,13 +7,15 @@
             <mat-label>Adresse</mat-label>
             <mat-label>Code postal</mat-label>
             <mat-label>Ville</mat-label>
+            <mat-label>Pays</mat-label>
             <mat-label>Mail</mat-label>
             <mat-label>Télephone</mat-label>
         </div>
         <div class="item info">
             <mat-label *ngIf="client.address">{{ client.address }}</mat-label>
             <mat-label *ngIf="client.codeCity">{{ client.codeCity }}</mat-label>
-            <mat-label *ngIf="client.city">{{ client.address }}</mat-label>
+            <mat-label *ngIf="client.city">{{ client.city }}</mat-label>
+            <mat-label *ngIf="client.country">{{ client.country }}</mat-label>
             <mat-label *ngIf="client.email">{{ client.email }}</mat-label>
             <mat-label *ngIf="client.phone">{{ client.phone }}</mat-label>
         </div>
