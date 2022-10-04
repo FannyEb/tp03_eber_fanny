@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Client } from '../core/model/client';
 
 @Component({
@@ -8,6 +8,7 @@ import { Client } from '../core/model/client';
 })
 export class ClientInfoComponent {
 
+  @Output() back: EventEmitter<any> = new EventEmitter();
   @Input() client: Client = new Client()
 
 }

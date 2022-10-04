@@ -6,3 +6,11 @@
 .form-group{
     margin-right: 2rem;
 }
+
+.card{
+    width: fit-content;
+}
+
+button{
+    margin-top: 1rem;
+}

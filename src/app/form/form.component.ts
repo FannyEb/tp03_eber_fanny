@@ -15,10 +15,15 @@ export class FormComponent{
 
   validate(){
     // password and confirmPassword must be equals
-    if(this.client.password != this.client.confirmPassword){
+    if(!this.client.isPasswordConfirm()){
       alert('le mot de passe n\'est pas identique à la confirmation de mot de passe')
       return
     }
-    this.showInfo = true    
+    if(!this.client.isAllCompleted()){
+      alert('Les champs ne sont pas tous remplis')
+      return  
+    } 
+    
+    this.showInfo = true;
   }
 }
