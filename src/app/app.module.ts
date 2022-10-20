@@ -20,11 +20,17 @@ import { InputNumbersDirective } from './core/directive/input-numbers/input-numb
 import { InputLettersDirective } from './core/directive/input-letters/input-letters.directive';
 import { PhoneNumberPipe } from './core/pipe/phone-number/phone-number.pipe';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatChipsModule }  from '@angular/material/chips';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDividerModule } from '@angular/material/divider';
 
 const routes: Routes = [
   { path: '', component: FormComponent },
   { path: 'client-form', component: FormComponent },
   { path: 'client-info/:id', component: ClientInfoComponent },
+  {path: 'catalogue', component: CatalogueComponent}
 ];
 
 const customNotifierOptions: NotifierOptions = {
@@ -78,6 +84,7 @@ const customNotifierOptions: NotifierOptions = {
     InputNumbersDirective,
     InputLettersDirective,
     PhoneNumberPipe,
+    CatalogueComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,8 +99,12 @@ const customNotifierOptions: NotifierOptions = {
     MatIconModule,
     FormsModule,
     MatCardModule,
+    MatGridListModule,
+    MatChipsModule,
+    HttpClientModule,
+    MatDividerModule,
     NotifierModule.withConfig(customNotifierOptions)
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
