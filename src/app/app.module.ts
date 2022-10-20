@@ -23,7 +23,8 @@ import { NotifierModule, NotifierOptions } from 'angular-notifier';
 
 const routes: Routes = [
   { path: '', component: FormComponent },
-  { path: 'client-info', component: ClientInfoComponent },
+  { path: 'client-form', component: FormComponent },
+  { path: 'client-info/:id', component: ClientInfoComponent },
 ];
 
 const customNotifierOptions: NotifierOptions = {
