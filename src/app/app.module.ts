@@ -25,6 +25,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatChipsModule }  from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
+import { ProductCategoryPipe } from './core/pipe/product-category/product-category.pipe';
 
 const routes: Routes = [
   { path: '', component: FormComponent },
@@ -85,6 +86,7 @@ const customNotifierOptions: NotifierOptions = {
     InputLettersDirective,
     PhoneNumberPipe,
     CatalogueComponent,
+    ProductCategoryPipe,
   ],
   imports: [
     BrowserModule,

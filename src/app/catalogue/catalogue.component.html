@@ -1,4 +1,5 @@
 <div class="main-content">
+  
     <div *ngFor="let product of products">
         <mat-card class="cardCatalogue">
             <img class="imgCatalogue" mat-card-image src="{{product.image}}" alt="product.description">
@@ -6,7 +7,7 @@
             <mat-divider inset></mat-divider>
             <mat-card-content class="content">
                 <mat-chip-list>
-                    <mat-chip>{{ product.category}}</mat-chip>
+                    <mat-chip>{{ product.category | productCategory}}</mat-chip>
                 </mat-chip-list>
                 <p>{{product.description}}</p>
                 <p>{{product.price}}$</p>
