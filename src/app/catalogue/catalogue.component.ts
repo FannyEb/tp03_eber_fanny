@@ -5,9 +5,7 @@ import { ProductCategory } from '../core/model/product-category';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
-import { startWith } from 'rxjs/internal/operators/startWith';
-import { map } from 'rxjs';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { map } from 'rxjs/internal/operators/map';
 
 @Component({
   selector: 'app-catalogue',
@@ -16,13 +14,51 @@ import { MatChipInputEvent } from '@angular/material/chips';
 })
 export class CatalogueComponent implements OnInit {
 
-  products: Array<Product> = [];
+  products!: Observable<Product[]>; 
+  categories=[ ProductCategory.Soup, ProductCategory.Pie, ProductCategory.Desert ];
+  
+  filteredCategories: Set<ProductCategory> = new Set;
+  filteredTerm: string = '';
   
   constructor(private catalogueService: CatalogueService) {}
 
   ngOnInit(): void {
-    this.catalogueService.getAll().subscribe(data => {
-      this.products = data;
-    });
+    this.products = this.catalogueService.getAll();
+  }
+  
+  removeCategory(category: ProductCategory): void{
+    this.filteredCategories.delete(category);
+  }
+
+  addCategory(category: ProductCategory): void{
+    this.filteredCategories.add(category);
+  }
+
+  categoryFilterUpdate(category: ProductCategory): void
+  {
+    if(this.filteredCategories.has(category)){
+      this.removeCategory(category);
+    }
+    else{
+      this.addCategory(category);
+    }
+
+    this.getProductFiltered();
+  }
+
+  getProductFiltered(): void{
+    this.products = this.catalogueService.getAll().pipe(
+      map((products: Product[]) => products.filter(product => {
+        let predicate = true;
+        if(this.filteredTerm != ''){
+          predicate = product.name.toLowerCase().includes(this.filteredTerm.toLowerCase());
+        }
+        if(this.filteredCategories.size > 0 && predicate){
+          predicate = this.filteredCategories.has(product.category);
+        }
+        return predicate;
+      }
+      ))
+    );
   }
 }

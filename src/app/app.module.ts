@@ -26,6 +26,7 @@ import { MatChipsModule }  from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { ProductCategoryPipe } from './core/pipe/product-category/product-category.pipe';
+import { ChipActivateDirective } from './core/directive/chip-activate/chip-activate.directive';
 
 const routes: Routes = [
   { path: '', component: FormComponent },
@@ -87,6 +88,7 @@ const customNotifierOptions: NotifierOptions = {
     PhoneNumberPipe,
     CatalogueComponent,
     ProductCategoryPipe,
+    ChipActivateDirective,
   ],
   imports: [
     BrowserModule,
