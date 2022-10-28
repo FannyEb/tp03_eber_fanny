@@ -14,7 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { InputNumbersDirective } from './core/directive/input-numbers/input-numbers.directive';
 import { InputLettersDirective } from './core/directive/input-letters/input-letters.directive';
@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
 import { ProductCategoryPipe } from './core/pipe/product-category/product-category.pipe';
 import { ChipActivateDirective } from './core/directive/chip-activate/chip-activate.directive';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 const routes: Routes = [
   { path: '', component: FormComponent },
@@ -107,6 +108,8 @@ const customNotifierOptions: NotifierOptions = {
     MatChipsModule,
     HttpClientModule,
     MatDividerModule,
+    ReactiveFormsModule,
+    NgxIntlTelInputModule,
     NotifierModule.withConfig(customNotifierOptions)
   ],
   bootstrap: [AppComponent],

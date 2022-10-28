@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { CountryISO, PhoneNumberFormat, SearchCountryField } from 'ngx-intl-tel-input';
 import { Client } from '../core/model/client';
 import { ClientService } from '../core/service/client/client.service';
 
@@ -14,6 +16,11 @@ export class FormComponent {
 
   client: Client = new Client();
   showInfo = false;
+  SearchCountryField = SearchCountryField;
+  CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+	preferredCountries: CountryISO[] = [CountryISO.France, CountryISO.UnitedKingdom];
+  
   constructor(private router: Router, private notifier: NotifierService, private clientService: ClientService) { }
 
   validate() {

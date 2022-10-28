@@ -49,11 +49,20 @@
                         <mat-label>Adresse mail</mat-label>
                         <input matInput placeholder="name@exemple.com" [(ngModel)]="client.email" type="email">
                     </mat-form-field>
-                    <mat-form-field class="form-group" appearance="legacy">
-                        <mat-label>Numéro de téléphone</mat-label>
-                        <input matInput type="tel" appInputNumbers="18" placeholder="06 00 00 00 00" [(ngModel)]="client.phone"
-                            required>
-                    </mat-form-field>
+                    <!-- <mat-label>Numéro de téléphone</mat-label>
+                        <input matInput type="tel" appInputNumbers="18" placeholder="06 00 00 00 00"
+                            [(ngModel)]="client.phone" required> -->
+                    <div class="mat-form-field-wrapper ng-tns-c83-7">
+                        <div class="mat-form-field-flex ng-tns-c83-8">
+                            <ngx-intl-tel-input [cssClass]="'mat-input-element mat-form-field-autofill-control ng-tns-c83-8 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored'" [preferredCountries]="preferredCountries"
+                                [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true"
+                                [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.France" [maxLength]="15"
+                                [phoneValidation]="true" name="phone" formControlName="phone"
+                                [numberFormat]="PhoneNumberFormat.International">
+                            </ngx-intl-tel-input>
+                        </div>
+                    </div>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -79,6 +88,6 @@
         <div>
             <button mat-raised-button color="primary" (click)="validate()">Valider</button>
         </div>
+
     </div>
 </div>
-
