@@ -19,11 +19,6 @@ export class InputNumbersDirective {
         evt.preventDefault();
         notifier.notify('error', 'Vous ne pouvez pas entrer plus de ' + this.appInputNumbers + ' chiffres');
       }
-
-      if(this.appInputNumbers=="18"){
-        let pipe = new PhoneNumberPipe();
-        this.el.nativeElement.value = pipe.transform(this.el.nativeElement.value);
-      }
     }
     
  }

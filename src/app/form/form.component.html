@@ -49,11 +49,12 @@
                         <mat-label>Adresse mail</mat-label>
                         <input matInput placeholder="name@exemple.com" [(ngModel)]="client.email" type="email">
                     </mat-form-field>
-                    <mat-form-field class="form-group" appearance="legacy">
-                        <mat-label>Numéro de téléphone</mat-label>
-                        <input matInput type="tel" appInputNumbers="18" placeholder="06 00 00 00 00" [(ngModel)]="client.phone"
-                            required>
-                    </mat-form-field>
+                    <form [formGroup]="myForm">
+                        <mat-form-field class="form-group" appearance="legacy">
+                            <ngx-mat-intl-tel-input formControlName="phone"  [preferredCountries]="['fr', 'gb']" [enablePlaceholder]="true"
+                                [enableSearch]="true" #phone name="phone" placeholder="Téléphone *"></ngx-mat-intl-tel-input>
+                        </mat-form-field>
+                    </form>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -81,4 +82,3 @@
         </div>
     </div>
 </div>
-

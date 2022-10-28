@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { Client } from '../core/model/client';
@@ -14,9 +15,19 @@ export class FormComponent {
 
   client: Client = new Client();
   showInfo = false;
-  constructor(private router: Router, private notifier: NotifierService, private clientService: ClientService) { }
+  myForm: FormGroup;
+
+  constructor(private fb: FormBuilder, private router: Router, private notifier: NotifierService, private clientService: ClientService) {
+    this.myForm = this.fb.group({
+      phone: [undefined, [Validators.required]],
+    });
+  }
 
   validate() {
+    //phone valid 
+    if(this.myForm?.valid){
+      this.client.phone = this.myForm.get('phone')?.value
+    }
     // password and confirmPassword must be equals
     if (!this.client.isPasswordConfirm()) {
       this.notifier.notify('error', 'Les mots de passe ne sont pas identiques');
